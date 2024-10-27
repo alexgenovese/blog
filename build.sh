@@ -25,12 +25,8 @@ rm composer-setup.php
 # INSTALL COMPOSER DEPENDENCIES
 php composer.phar install
 
+# GENERATE APP KEY
+php artisan key:generate
+
 # BUILD STATIC SITE
 php please ssg:generate
-
-# Build assets
-npm run build
-# vercel build --prod
-
-# Deploy to Vercel
-# vercel deploy --prebuilt --prod
