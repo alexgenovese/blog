@@ -1,13 +1,36 @@
 #!/bin/sh
 
-# ./build.sh in the root directory of the project
+# Install PHP & WGET
+yum install -y amazon-linux-extras
+amazon-linux-extras enable php8.2
+yum clean metadata
+yum install php php-{common,curl,mbstring,gd,gettext,bcmath,json,xml,fpm,intl,zip,imap}
+yum install wget
+
+# INSTALL COMPOSER
+EXPECTED_CHECKSUM="$(wget -q -O - https://composer.github.io/installer.sig)"
+php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');"
+ACTUAL_CHECKSUM="$(php -r "echo hash_file('sha384', 'composer-setup.php');")"
+
+if [ "$EXPECTED_CHECKSUM" != "$ACTUAL_CHECKSUM" ]
+then
+    >&2 echo 'ERROR: Invalid installer checksum'
+    rm composer-setup.php
+    exit 1
+fi
+
+php composer-setup.php --quiet
+rm composer-setup.php
+
+# INSTALL COMPOSER DEPENDENCIES
+php composer.phar install
 
 # BUILD STATIC SITE
 php please ssg:generate
 
 # Build assets
 npm run build
-vercel build --prod
+# vercel build --prod
 
 # Deploy to Vercel
-vercel deploy --prebuilt --prod  --archive=tgz
+# vercel deploy --prebuilt --prod
