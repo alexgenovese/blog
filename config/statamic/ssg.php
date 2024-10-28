@@ -47,8 +47,9 @@ return [
     ],
 
     'symlinks' => [
-        // public_path('css') => 'css',
-        // public_path('js') => 'js',
+        public_path('assets') => 'assets',
+        public_path('css') => 'css',
+        public_path('js') => 'js',
     ],
 
     /*
@@ -78,5 +79,7 @@ return [
     'glide' => [
         'directory' => 'img',
     ],
+
+    'failures' => 'warnings'
 
 ];

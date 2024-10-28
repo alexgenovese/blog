@@ -2,3 +2,6 @@ name: Alex
 super: true
 id: 4f31bb66-ae53-438d-b9c1-bcf3b048f074
 password_hash: $2y$12$iEqVGAt0se6Jl9iriD/zBem.xu2oxIj8T4U/M2gLzAyQr0Scjl4R6
+preferences:
+  locale: en
+  favorites: {  }
