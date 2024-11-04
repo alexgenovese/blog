@@ -1,4 +1,4 @@
-#!/bin/sh
+!/bin/sh
 
 # Install PHP & WGET
 yum install -y amazon-linux-extras
