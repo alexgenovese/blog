@@ -19,6 +19,7 @@ then
     exit 1
 fi
 
+
 php composer-setup.php --quiet
 rm composer-setup.php
 
