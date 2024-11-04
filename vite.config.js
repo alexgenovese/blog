@@ -9,7 +9,7 @@ export default defineConfig({
                 'resources/js/site.js',
             ],
             refresh: true,
-            publicDirectory: '/build/assets',
+            // publicDirectory: '/build/assets',
         }),
     ],
 });
