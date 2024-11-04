@@ -8,8 +8,7 @@ export default defineConfig({
                 'resources/css/site.css',
                 'resources/js/site.js',
             ],
-            refresh: true,
-            // publicDirectory: 'storage/app/static',
+            refresh: true
         }),
     ],
 });
