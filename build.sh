@@ -1,4 +1,4 @@
-!/bin/sh
+#!/bin/sh
 
 # Install PHP & WGET
 yum install -y amazon-linux-extras
@@ -29,4 +29,4 @@ php composer.phar install
 php artisan key:generate
 
 # BUILD STATIC SITE
-php please ssg:generate
+npm install && npm run build && php please ssg:generate
